@@ -45,7 +45,6 @@
     <Compile Include="FoundKeyWord.cs" />
     <Compile Include="IKeyWords.cs" />
     <Compile Include="MathematicalOperators.cs" />
-    <Compile Include="NotMachingAnyExpression.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skaner.cs" />

@@ -5,11 +5,20 @@ namespace SQLSkaner
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            var testSkaner = new Skaner("+  +--+ /");
-            var result = testSkaner.TokenizeInput();
-            PrintResults(result);
+            var testSkaner = new Skaner("+avgsum/ ");
+            List<FoundKeyWord> result = new List<FoundKeyWord>();
+            try
+            {
+                result = testSkaner.TokenizeInput();
+                PrintResults(result);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             Console.ReadKey();
         }
 

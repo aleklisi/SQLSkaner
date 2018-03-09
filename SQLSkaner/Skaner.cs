@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SQLSkaner
 {
     class Skaner
     {
-        List<IKeyWords> _allPossibleKeywordsList = new List<IKeyWords> { new MathematicalOperators() };
+        List<IKeyWords> _allPossibleKeywordsList = new List<IKeyWords> { new MathematicalOperators(), new Agregators() };
         private string input;
 
 
@@ -61,6 +62,11 @@ namespace SQLSkaner
 
         }
 
+        private static void ExitWithExeption(string errorMesage)
+        {
+            throw new Exception("No match or potencial match for " + errorMesage);
+        }
+
         internal List<FoundKeyWord> TokenizeInput()
         {
             var result = new List<FoundKeyWord>();
@@ -73,9 +79,7 @@ namespace SQLSkaner
                 if (IsEndOfInput(startPosition + lengthOfCurrentWord) ||
                     (!AnyFullMatch(inputSubstring) && !AnyPartilMatch(inputSubstring)))
                 {
-                    result.Add(new FoundKeyWord(inputSubstring,new NotMachingAnyExpression()));
-                    startPosition++;
-                    continue;
+                    ExitWithExeption(inputSubstring);
                 }
                 while (!IsEndOfInput(startPosition + lengthOfCurrentWord) &&
                        (AnyFullMatch(inputSubstring) || AnyPartilMatch(inputSubstring)))
@@ -93,6 +97,9 @@ namespace SQLSkaner
 
                 startPosition += lengthOfCurrentWord - 1;
                 var newFoundKeyWord = GetLongestFoundKeyWord(currentPossibleFoundKeywordsList);
+
+                if (newFoundKeyWord == null) ExitWithExeption(inputSubstring);
+
                 result.Add(newFoundKeyWord);
             }
 
