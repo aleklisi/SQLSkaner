@@ -24,7 +24,11 @@ namespace SQLSkaner
 
         bool AnyFullMatch(string currentInput)
         {
-            return GetAllFullMatches(currentInput).Count > 0;
+            foreach (var keyWord in _allPossibleKeywordsList)
+            {
+                if (keyWord.IsFullMatch(currentInput)) return true;
+            }
+            return false;
         }
 
         List<FoundKeyWord> GetAllFullMatches(string currentInput)
@@ -64,14 +68,20 @@ namespace SQLSkaner
             while (startPosition < input.Length)
             {
                 var lengthOfCurrentWord = 1;
-                //if (IsEndOfInput(startPosition + lengthOfCurrentWord)) break;
                 var inputSubstring = input.Substring(startPosition, lengthOfCurrentWord);
                 var currentPossibleFoundKeywordsList = new List<FoundKeyWord>();
-
+                if (IsEndOfInput(startPosition + lengthOfCurrentWord) ||
+                    (!AnyFullMatch(inputSubstring) && !AnyPartilMatch(inputSubstring)))
+                {
+                    result.Add(new FoundKeyWord(inputSubstring,new NotMachingAnyExpression()));
+                    startPosition++;
+                    continue;
+                }
                 while (!IsEndOfInput(startPosition + lengthOfCurrentWord) &&
                        (AnyFullMatch(inputSubstring) || AnyPartilMatch(inputSubstring)))
                 {
-                    currentPossibleFoundKeywordsList.AddRange(GetAllFullMatches(inputSubstring));
+                    var fullMaches = GetAllFullMatches(inputSubstring);
+                    currentPossibleFoundKeywordsList.AddRange(fullMaches);
                     lengthOfCurrentWord++;
                     if (IsEndOfInput(startPosition + lengthOfCurrentWord))
                     {

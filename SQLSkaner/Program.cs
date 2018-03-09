@@ -7,7 +7,7 @@ namespace SQLSkaner
     {
         static void Main(string[] args)
         {
-            var testSkaner = new Skaner("++-//");
+            var testSkaner = new Skaner("+  +--+ /");
             var result = testSkaner.TokenizeInput();
             PrintResults(result);
             Console.ReadKey();
