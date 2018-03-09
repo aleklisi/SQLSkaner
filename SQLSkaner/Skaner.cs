@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SQLSkaner
 {
@@ -62,13 +63,20 @@ namespace SQLSkaner
 
         }
 
-        private static void ExitWithExeption(string errorMesage)
+        private static void ExitWithExeption(string errorMesage, int startChar)
         {
-            throw new Exception("No match or potencial match for " + errorMesage);
+            StringBuilder message = new StringBuilder();
+            message.Append("No match or potencial match for ");
+            message.Append(errorMesage);
+            message.Append(" starting on ");
+            message.Append(startChar);
+            message.Append(" position");
+            throw new Exception(message.ToString());
         }
 
         internal List<FoundKeyWord> TokenizeInput()
         {
+            input += " ";
             var result = new List<FoundKeyWord>();
             var startPosition = 0;
             while (startPosition < input.Length)
@@ -79,7 +87,7 @@ namespace SQLSkaner
                 if (IsEndOfInput(startPosition + lengthOfCurrentWord) ||
                     (!AnyFullMatch(inputSubstring) && !AnyPartilMatch(inputSubstring)))
                 {
-                    ExitWithExeption(inputSubstring);
+                    ExitWithExeption(inputSubstring,startPosition);
                 }
                 while (!IsEndOfInput(startPosition + lengthOfCurrentWord) &&
                        (AnyFullMatch(inputSubstring) || AnyPartilMatch(inputSubstring)))
@@ -98,7 +106,7 @@ namespace SQLSkaner
                 startPosition += lengthOfCurrentWord - 1;
                 var newFoundKeyWord = GetLongestFoundKeyWord(currentPossibleFoundKeywordsList);
 
-                if (newFoundKeyWord == null) ExitWithExeption(inputSubstring);
+                if (newFoundKeyWord == null) ExitWithExeption(inputSubstring,startPosition);
 
                 result.Add(newFoundKeyWord);
             }

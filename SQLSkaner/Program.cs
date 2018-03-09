@@ -7,7 +7,7 @@ namespace SQLSkaner
     {
         static void Main()
         {
-            var testSkaner = new Skaner("+avgsum/ ");
+            var testSkaner = new Skaner("sum");
             List<FoundKeyWord> result = new List<FoundKeyWord>();
             try
             {
