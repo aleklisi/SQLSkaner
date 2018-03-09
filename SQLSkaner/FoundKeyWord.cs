@@ -2,13 +2,13 @@
 {
     class FoundKeyWord
     {
-        internal string foundPattern;
-        internal IKeyWords keyWordType;
+        internal string FoundPattern;
+        internal IKeyWords KeyWordType;
 
         internal FoundKeyWord(string foundPattern, IKeyWords keyWordType)
         {
-            this.foundPattern = foundPattern;
-            this.keyWordType = keyWordType;
+            FoundPattern = foundPattern;
+            KeyWordType = keyWordType;
         }
     }
 }

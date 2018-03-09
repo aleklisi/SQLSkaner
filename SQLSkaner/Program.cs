@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SQLSkaner
 {
@@ -6,10 +7,18 @@ namespace SQLSkaner
     {
         static void Main(string[] args)
         {
-            var x = "asdf";
-
-            Console.WriteLine(x.Substring(0,1));
+            var testSkaner = new Skaner("++-//");
+            var result = testSkaner.TokenizeInput();
+            PrintResults(result);
             Console.ReadKey();
+        }
+
+        static void PrintResults(IEnumerable<FoundKeyWord> keyWords)
+        {
+            foreach (var keyWord in keyWords)
+            {
+                Console.WriteLine("Pattern is: " + keyWord.FoundPattern + " tokanized as: " + keyWord.KeyWordType.KeyWordName());
+            }
         }
     }
 }

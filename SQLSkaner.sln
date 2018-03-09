@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLSkaner", "SQLSkaner\SQLSkaner.csproj", "{E155BD0B-6194-44AD-8A9D-C9F7E895836A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5D2FDE19-2CEC-4C7A-8534-7640E8330856}"
+	ProjectSection(SolutionItems) = preProject
+		SQLSkaner\WhiteSpaces.cs = SQLSkaner\WhiteSpaces.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +23,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77CBC32D-DF6A-4F43-BCD8-ACAF330EBEB8}
 	EndGlobalSection
 EndGlobal

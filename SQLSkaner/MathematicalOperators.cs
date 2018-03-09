@@ -18,5 +18,10 @@
                 return true;
             return false;
         }
+
+        public string KeyWordName()
+        {
+            return "MathematicalOperators";
+        }
     }
 }
