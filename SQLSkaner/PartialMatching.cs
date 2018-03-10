@@ -12,11 +12,10 @@ namespace SQLSkaner
             if (input.Length >= regex.Length || input == "")
                 return false;
 
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 if (input[i] == regex[i])
                     continue;
-                if (i == 0)
                     return false;
             }
             return true;
@@ -26,7 +25,7 @@ namespace SQLSkaner
         {
             input = input.ToUpper();
 
-            foreach (string regex in regexLists)
+            foreach (var regex in regexLists)
                 if (regex == input)
                     return true;
 
@@ -35,7 +34,7 @@ namespace SQLSkaner
 
         public static bool IsPartialMatch(List<string> regexLists, string input)
         {
-            foreach (string regex in regexLists)
+            foreach (var regex in regexLists)
                 if (IsPartialMatchToRegex(regex, input)) return true;
             return false;
         }
