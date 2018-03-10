@@ -1,28 +1,29 @@
-﻿using System;
-using SQLSkaner;
-
-public class WhiteSpaces : IKeyWords
+﻿namespace SQLSkaner.IKeyWord
 {
-    public bool IsPartialMatch(string input)
-    {
-        return false;
-    }
 
-    public bool IsFullMatch(string input)
+    public class WhiteSpaces : IKeyWords
     {
-        if (input.Equals(" "))
-            return true;
-        if (input.Equals("\t"))
-            return true;
-        if (input.Equals("\n"))
-            return true;
-        if (input.Equals("\r"))
-            return true;
-        return false;
-    }
+        public bool IsPartialMatch(string input)
+        {
+            return false;
+        }
 
-    public string KeyWordName()
-    {
-        return "WhiteSpaces";
+        public bool IsFullMatch(string input)
+        {
+            if (input.Equals(" "))
+                return true;
+            if (input.Equals("\t"))
+                return true;
+            if (input.Equals("\n"))
+                return true;
+            if (input.Equals("\r"))
+                return true;
+            return false;
+        }
+
+        public string KeyWordName()
+        {
+            return "WhiteSpaces";
+        }
     }
 }

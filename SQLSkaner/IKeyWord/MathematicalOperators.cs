@@ -1,4 +1,4 @@
-﻿namespace SQLSkaner
+﻿namespace SQLSkaner.IKeyWord
 {
     class MathematicalOperators : IKeyWords
     {
