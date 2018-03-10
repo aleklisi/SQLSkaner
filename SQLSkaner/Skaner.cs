@@ -12,7 +12,8 @@ namespace SQLSkaner
         {
             new MathematicalOperators(),
             new OpeningBracket(),
-            new ClosingBracket()
+            new ClosingBracket(),
+            new WhiteSpaces()
         };
         private string _input;
 

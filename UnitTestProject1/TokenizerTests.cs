@@ -13,6 +13,10 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("/", "MathematicalOperators")]
         [TestCase("(", "OpeningBracket")]
         [TestCase(")", "ClosingBracket")]
+        [TestCase(" ", "WhiteSpaces")]
+        [TestCase("\t", "WhiteSpaces")]
+        [TestCase("\n", "WhiteSpaces")]
+        [TestCase("\r", "WhiteSpaces")]
         public void TokenRecognizedCorrectly(string input, string tokenName)
         {
             var skaner = new Skaner(input);
