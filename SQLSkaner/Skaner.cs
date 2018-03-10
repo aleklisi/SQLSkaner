@@ -8,18 +8,18 @@ namespace SQLSkaner
 {
     public class Skaner
     {
-        List<IKeyWords> _allPossibleKeywordsList = new List<IKeyWords>
+        readonly List<IKeyWords> _allPossibleKeywordsList = new List<IKeyWords>
         {
             new MathematicalOperators(),
             new OpeningBracket(),
             new ClosingBracket()
         };
-        private string input;
+        private string _input;
 
 
         public Skaner(string input)
         {
-            this.input = input;
+            _input = input;
         }
         bool AnyPartilMatch(string currentInput)
         {
@@ -54,7 +54,7 @@ namespace SQLSkaner
 
         bool IsEndOfInput(int reachedPosition)
         {
-            return reachedPosition >= input.Length;
+            return reachedPosition >= _input.Length;
         }
 
         FoundKeyWord GetLongestFoundKeyWord(List<FoundKeyWord> foundKeyWords)
@@ -62,7 +62,7 @@ namespace SQLSkaner
             FoundKeyWord longesKeyWord = foundKeyWords.FirstOrDefault();
             foreach (var keyWord in foundKeyWords)
             {
-                if (keyWord.FoundPattern.Length > longesKeyWord.FoundPattern.Length) longesKeyWord = keyWord;
+                if (keyWord.FoundPattern.Length > longesKeyWord?.FoundPattern.Length) longesKeyWord = keyWord;
             }
 
             return longesKeyWord;
@@ -83,13 +83,13 @@ namespace SQLSkaner
         public List<FoundKeyWord> TokenizeInput()
         {
             
-            input += " ";
+            _input += " ";
             var result = new List<FoundKeyWord>();
             var startPosition = 0;
-            while (startPosition < input.Length)
+            while (startPosition < _input.Length)
             {
                 var lengthOfCurrentWord = 1;
-                var inputSubstring = input.Substring(startPosition, lengthOfCurrentWord);
+                var inputSubstring = _input.Substring(startPosition, lengthOfCurrentWord);
                 var currentPossibleFoundKeywordsList = new List<FoundKeyWord>();
                 if (IsEndOfInput(startPosition + lengthOfCurrentWord) ||
                     (!AnyFullMatch(inputSubstring) && !AnyPartilMatch(inputSubstring)))
@@ -107,7 +107,7 @@ namespace SQLSkaner
                         startPosition += lengthOfCurrentWord;
                         break;
                     }
-                    inputSubstring = input.Substring(startPosition, lengthOfCurrentWord);
+                    inputSubstring = _input.Substring(startPosition, lengthOfCurrentWord);
                 }
 
                 startPosition += lengthOfCurrentWord - 1;
