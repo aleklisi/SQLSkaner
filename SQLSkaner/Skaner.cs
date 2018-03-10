@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SQLSkaner.IKeyWord;
 
 namespace SQLSkaner
 {
     public class Skaner
     {
-        List<IKeyWords> _allPossibleKeywordsList = new List<IKeyWords> { new MathematicalOperators(), new WhiteSpaces() };
+        List<IKeyWords> _allPossibleKeywordsList = new List<IKeyWords>
+        {
+            new MathematicalOperators(),
+            new OpeningBracket(),
+            new ClosingBracket()
+        };
         private string input;
 
 

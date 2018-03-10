@@ -10,7 +10,7 @@ namespace SQLSkaner
     {
         public bool IsFullMatch(string input)
         {
-            return (input == "(");
+            return input == "(";
         }
 
         public bool IsPartialMatch(string input)
