@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agregator.cs" />
     <Compile Include="IKeyWord\ClosingBracket.cs" />
     <Compile Include="IKeyWord\Comma.cs" />
     <Compile Include="IKeyWord\Comparator.cs" />
