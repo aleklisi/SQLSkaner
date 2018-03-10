@@ -1,22 +1,39 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NUnit.Framework;
-using SQLSkaner;
 using Assert = NUnit.Framework.Assert;
 
-namespace Prime.UnitTests.Services
+namespace SQLSkaner.UnitTests.Services
 {
     [TestFixture]
-    public class PrimeService_IsPrimeShould
+    public class MathematicalOperatorsTests
     {
         
-        [Test]
-        public void ReturnFalseGivenValueOf1()
+        [TestCase("+", "MathematicalOperators")]
+        [TestCase("-", "MathematicalOperators")]
+        [TestCase("/", "MathematicalOperators")]
+        [TestCase("(", "OpeningBracket")]
+        [TestCase(")", "ClosingBracket")]
+        [TestCase(" ", "WhiteSpaces")]
+        [TestCase("\t", "WhiteSpaces")]
+        [TestCase("\n", "WhiteSpaces")]
+        [TestCase("\r", "WhiteSpaces")]
+        public void TokenRecognizedCorrectly(string input, string tokenName)
         {
-            var skaner = new Skaner("+");
+            var skaner = new Skaner(input);
 
             var result = skaner.TokenizeInput();
             Assert.IsTrue(result.Count == 1);
-            Assert.IsTrue(result.FirstOrDefault()?.getKeyWordName() == "MathematicalOperators");
+            Assert.IsTrue(result.FirstOrDefault()?.getKeyWordName() == tokenName);
         }
+
+        [TestCase("asdf")]
+        public void incorrectInput(string input)
+        {
+            var skaner = new Skaner(input);
+
+            Assert.Throws<Exception>(() => skaner.TokenizeInput());
+        }
+
     }
 }
