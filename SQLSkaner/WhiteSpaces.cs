@@ -16,6 +16,8 @@ public class WhiteSpaces : IKeyWords
             return true;
         if (input.Equals("\n"))
             return true;
+        if (input.Equals("\r"))
+            return true;
         return false;
     }
 
