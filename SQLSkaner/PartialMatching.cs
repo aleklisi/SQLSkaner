@@ -16,7 +16,7 @@ namespace SQLSkaner
             {
                 if (input[i] == regex[i])
                     continue;
-                if (i == 0)
+
                     return false;
             }
             return true;
