@@ -1,6 +1,6 @@
 ﻿namespace SQLSkaner
 {
-    class FoundKeyWord
+    public class FoundKeyWord
     {
         internal string FoundPattern;
         internal IKeyWords KeyWordType;

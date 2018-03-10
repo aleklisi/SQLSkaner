@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SQLSkaner
 {
-    class Skaner
+    public class Skaner
     {
         List<IKeyWords> _allPossibleKeywordsList = new List<IKeyWords> { new MathematicalOperators(), new WhiteSpaces() };
         private string input;
@@ -74,8 +74,9 @@ namespace SQLSkaner
             throw new Exception(message.ToString());
         }
 
-        internal List<FoundKeyWord> TokenizeInput()
+        public List<FoundKeyWord> TokenizeInput()
         {
+            
             input += " ";
             var result = new List<FoundKeyWord>();
             var startPosition = 0;
