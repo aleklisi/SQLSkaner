@@ -2,14 +2,16 @@
 
 namespace SQLSkaner.IKeyWord
 {
-    class BooleanValues : IKeyWords
+    class TableManipulation : IKeyWords
     {
         static readonly List<string> matchingRegex = new List<string>();
 
-        public BooleanValues()
+        public TableManipulation()
         {
-            matchingRegex.Add("TRUE");
-            matchingRegex.Add("FALSE");
+            matchingRegex.Add("CREATE TABLE");
+            matchingRegex.Add("ALTER TABLE");
+            matchingRegex.Add("TRUNCATE TABLE");
+            matchingRegex.Add("DROP TABLE");
         }
 
         public bool IsFullMatch(string input)
@@ -24,7 +26,7 @@ namespace SQLSkaner.IKeyWord
 
         public string KeyWordName()
         {
-            return "BooleanValues";
+            return "TableManipulation";
         }
     }
 }

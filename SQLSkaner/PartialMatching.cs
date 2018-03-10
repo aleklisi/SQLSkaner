@@ -1,8 +1,10 @@
-﻿namespace SQLSkaner
+﻿using System.Collections.Generic;
+
+namespace SQLSkaner
 {
-    class PartialMatching
+    class MatchingService
     {
-        public static bool IsPartialMatchToRegex(string regex, string input)
+        private static bool IsPartialMatchToRegex(string regex, string input)
         {
             input = input.ToUpper();
             regex = regex.ToUpper();
@@ -19,5 +21,24 @@
             }
             return true;
         }
+
+        public static bool IsFullMatch(List<string> regexLists, string input)
+        {
+            input = input.ToUpper();
+
+            foreach (string regex in regexLists)
+                if (regex == input)
+                    return true;
+
+            return false;
+        }
+
+        public static bool IsPartialMatch(List<string> regexLists, string input)
+        {
+            foreach (string regex in regexLists)
+                if (IsPartialMatchToRegex(regex, input)) return true;
+            return false;
+        }
+
     }
 }
