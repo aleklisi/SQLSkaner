@@ -42,10 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Agregator.cs" />
+    <Compile Include="IKeyWord\Agregators.cs" />
+	<Compile Include="IKeyWord\AliasingColumns.cs" />
+	<Compile Include="IKeyWord\BooleanValues.cs" />
     <Compile Include="IKeyWord\ClosingBracket.cs" />
     <Compile Include="IKeyWord\Comma.cs" />
     <Compile Include="IKeyWord\Comparator.cs" />
+	<Compile Include="IKeyWord\LogicalOperators.cs" />
     <Compile Include="FoundKeyWord.cs" />
     <Compile Include="IKeyWords.cs" />
     <Compile Include="IKeyWord\MathematicalOperators.cs" />

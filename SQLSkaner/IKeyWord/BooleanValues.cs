@@ -13,7 +13,7 @@ namespace SQLSkaner.IKeyWord
             matchingRegex.Add("FALSE");
         }
 
-        private bool IsMatch(string input)
+        public bool IsFullMatch(string input)
         {
             input = input.ToUpper();
 
@@ -22,12 +22,6 @@ namespace SQLSkaner.IKeyWord
                     return true;
 
             return false;
-        }
-
-        public bool IsFullMatch(string input)
-        {
-            return IsMatch(input);
-
         }
 
         public bool IsPartialMatch(string input)
