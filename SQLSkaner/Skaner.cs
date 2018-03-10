@@ -10,9 +10,18 @@ namespace SQLSkaner
     {
         readonly List<IKeyWords> _allPossibleKeywordsList = new List<IKeyWords>
         {
+            new Agregators(),
+            new AliasingColumns(),
+            new BooleanValues(),
+            new ClosingBracket(),
+            new Comma(),
+            new Comparator(),
+            new LogicalOperators(),
             new MathematicalOperators(),
             new OpeningBracket(),
-            new ClosingBracket(),
+            new RecordManipulation(),
+            new Star(),
+            new TableManipulation(),
             new WhiteSpaces()
         };
         private string _input;

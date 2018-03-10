@@ -1,30 +1,25 @@
-﻿namespace SQLSkaner.IKeyWord
+﻿using System.Collections.Generic;
+
+namespace SQLSkaner.IKeyWord
 {
     class LogicalOperators : IKeyWords
     {
+        static readonly List<string> matchingRegex = new List<string>();
+
+        public LogicalOperators()
+        {
+            matchingRegex.Add("AND");
+            matchingRegex.Add("OR");
+            matchingRegex.Add("NOT");
+        }
         public bool IsFullMatch(string input)
         {
-            input = input.ToUpper();
-            if (input == "AND")
-                return true;
-            if (input == "OR")
-                return true;
-            if (input == "NOT")
-                return true;
-
-            return false;
+            return MatchingService.IsFullMatch(matchingRegex, input);
         }
 
         public bool IsPartialMatch(string input)
         {
-            input = input.ToUpper();
-            if (PartialMatching.IsPartialMatchToRegex("AND", input))
-                return true;
-            if (PartialMatching.IsPartialMatchToRegex("OR", input))
-                return true;
-            if (PartialMatching.IsPartialMatchToRegex("NOT", input))
-                return true;
-            return false;
+            return MatchingService.IsPartialMatch(matchingRegex, input);
         }
 
         public string KeyWordName()

@@ -1,48 +1,32 @@
-﻿namespace SQLSkaner.IKeyWord
+﻿using System.Collections.Generic;
+
+namespace SQLSkaner.IKeyWord
 {
     class Comparator : IKeyWords
     {
+        static readonly List<string> matchingRegex = new List<string>();
+
+        public Comparator()
+        {
+            matchingRegex.Add(">");
+            matchingRegex.Add("<");
+            matchingRegex.Add("=");
+            matchingRegex.Add(">=");
+            matchingRegex.Add("=<");
+            matchingRegex.Add("<>");
+            matchingRegex.Add("BETWEEN");
+            matchingRegex.Add("LIKE");
+            matchingRegex.Add("IN");
+        }
+
         public bool IsFullMatch(string input)
         {
-            input = input.ToUpper();
-            if (input == ">")
-                return true;
-            if (input == "<")
-                return true;
-            if (input == "=")
-                return true;
-            if (input == ">=")
-                return true;
-            if (input == "<=")
-                return true;
-            if (input == "<>")
-                return true;
-            if (input == "BETWEEN") 
-                return true;
-           if  (input == "LIKE")
-                return true;
-            if (input == "IN")
-                return true;
-
-            return false;
+            return MatchingService.IsFullMatch(matchingRegex, input);
         }
 
         public bool IsPartialMatch(string input)
         {
-            input = input.ToUpper();
-            if (input == ">")
-                return true;
-            if (input == "<")
-                return true;
-            if (input == "=")
-                return true;
-            if (PartialMatching.IsPartialMatchToRegex("BETWEEN", input))
-                return true;
-            if (PartialMatching.IsPartialMatchToRegex("LIKE", input))
-                return true;
-            if (PartialMatching.IsPartialMatchToRegex("IN", input))
-                return true;
-            return false;
+            return MatchingService.IsPartialMatch(matchingRegex, input);
         }
 
         public string KeyWordName()

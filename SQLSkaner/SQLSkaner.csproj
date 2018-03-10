@@ -43,22 +43,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IKeyWord\Agregators.cs" />
-	<Compile Include="IKeyWord\AliasingColumns.cs" />
-	<Compile Include="IKeyWord\BooleanValues.cs" />
+    <Compile Include="IKeyWord\AliasingColumns.cs" />
+    <Compile Include="IKeyWord\BooleanValues.cs" />
     <Compile Include="IKeyWord\ClosingBracket.cs" />
     <Compile Include="IKeyWord\Comma.cs" />
     <Compile Include="IKeyWord\Comparator.cs" />
-	<Compile Include="IKeyWord\LogicalOperators.cs" />
+    <Compile Include="IKeyWord\LogicalOperators.cs" />
     <Compile Include="FoundKeyWord.cs" />
     <Compile Include="IKeyWords.cs" />
     <Compile Include="IKeyWord\MathematicalOperators.cs" />
     <Compile Include="IKeyWord\OpeningBracket.cs" />
+    <Compile Include="IKeyWord\RecordManipulation.cs" />
     <Compile Include="PartialMatching.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skaner.cs" />
     <Compile Include="IKeyWord\Star.cs" />
-	<Compile Include="IKeyWord\TableManipulation.cs" />
+    <Compile Include="IKeyWord\TableManipulation.cs" />
     <Compile Include="IKeyWord\WhiteSpaces.cs" />
   </ItemGroup>
   <ItemGroup>

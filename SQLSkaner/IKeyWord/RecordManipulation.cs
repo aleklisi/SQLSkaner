@@ -2,15 +2,17 @@
 
 namespace SQLSkaner.IKeyWord
 {
-    class AliasingColumns : IKeyWords
+    class RecordManipulation : IKeyWords
     {
         static readonly List<string> matchingRegex = new List<string>();
 
-        public AliasingColumns()
+        public RecordManipulation()
         {
-            matchingRegex.Add("AS");
+            matchingRegex.Add("SELECT");
+            matchingRegex.Add("INSERT INTO");
+            matchingRegex.Add("UPDATE");
+            matchingRegex.Add("DELETE FROM");
         }
-
         public bool IsFullMatch(string input)
         {
             return MatchingService.IsFullMatch(matchingRegex, input);
@@ -23,7 +25,7 @@ namespace SQLSkaner.IKeyWord
 
         public string KeyWordName()
         {
-            return "AliasingColumns";
+            return "RecordManipulation";
         }
     }
 }
