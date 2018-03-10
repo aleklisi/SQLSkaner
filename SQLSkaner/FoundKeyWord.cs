@@ -5,6 +5,11 @@
         internal string FoundPattern;
         internal IKeyWords KeyWordType;
 
+        public string getKeyWordName()
+        {
+            return KeyWordType.KeyWordName();
+        }
+
         internal FoundKeyWord(string foundPattern, IKeyWords keyWordType)
         {
             FoundPattern = foundPattern;
