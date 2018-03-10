@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NUnit.Framework;
 using Assert = NUnit.Framework.Assert;
 
@@ -25,5 +26,14 @@ namespace SQLSkaner.UnitTests.Services
             Assert.IsTrue(result.Count == 1);
             Assert.IsTrue(result.FirstOrDefault()?.getKeyWordName() == tokenName);
         }
+
+        [TestCase("asdf")]
+        public void incorrectInput(string input)
+        {
+            var skaner = new Skaner(input);
+
+            Assert.Throws<Exception>(() => skaner.TokenizeInput());
+        }
+
     }
 }
