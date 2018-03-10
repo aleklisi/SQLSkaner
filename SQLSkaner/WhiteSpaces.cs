@@ -1,4 +1,5 @@
 ﻿using System;
+using SQLSkaner;
 
 public class WhiteSpaces : IKeyWords
 {
@@ -18,4 +19,8 @@ public class WhiteSpaces : IKeyWords
         return false;
     }
 
+    public string KeyWordName()
+    {
+        return "WhiteSpaces";
+    }
 }

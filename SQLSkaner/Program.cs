@@ -25,13 +25,11 @@ namespace SQLSkaner
         }
         static void Main()
         {
-            var testSkaner = new Skaner("sum");
-            List<FoundKeyWord> result = new List<FoundKeyWord>();
+            var testSkaner = new Skaner("++--/ \t\n/-");
             try
             {
-                result = testSkaner.TokenizeInput();
+                var result = testSkaner.TokenizeInput();
                 PrintResults(result);
-
             }
             catch (Exception e)
             {

@@ -7,7 +7,7 @@ namespace SQLSkaner
 {
     class Skaner
     {
-        List<IKeyWords> _allPossibleKeywordsList = new List<IKeyWords> { new MathematicalOperators(), new Agregators() };
+        List<IKeyWords> _allPossibleKeywordsList = new List<IKeyWords> { new MathematicalOperators(), new WhiteSpaces() };
         private string input;
 
 
