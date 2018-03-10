@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 
-namespace SQLSkaner
+namespace SQLSkaner.IKeyWord
 {
-    class Agregators : IKeyWords
+    class Join : IKeyWords
     {
         static readonly List<string> matchingRegex = new List<string>();
 
-        public Agregators()
+        public Join()
         {
-            matchingRegex.Add("AVG");
-            matchingRegex.Add("SUM");
-            matchingRegex.Add("MIN");
-            matchingRegex.Add("MAX");
+            matchingRegex.Add("JOIN");
+            matchingRegex.Add("NATURAL JOIN");
+            matchingRegex.Add("INNER");
+            matchingRegex.Add("OUTER");
         }
 
         public bool IsFullMatch(string input)
@@ -26,7 +26,7 @@ namespace SQLSkaner
 
         public string KeyWordName()
         {
-            return "Agregators";
+            return "Join";
         }
     }
 }
