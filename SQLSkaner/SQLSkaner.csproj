@@ -49,6 +49,7 @@
     <Compile Include="IKeyWords.cs" />
     <Compile Include="IKeyWord\MathematicalOperators.cs" />
     <Compile Include="IKeyWord\OpeningBracket.cs" />
+    <Compile Include="PartialMatching.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skaner.cs" />
