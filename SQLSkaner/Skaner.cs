@@ -27,7 +27,8 @@ namespace SQLSkaner
             new RecordManipulationFollower(),
             new Star(),
             new TableManipulation(),
-            new WhiteSpaces()
+            new WhiteSpaces(),
+            new Join()
         };
         private string _input;
 

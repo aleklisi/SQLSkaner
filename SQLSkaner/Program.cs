@@ -25,7 +25,7 @@ namespace SQLSkaner
         }
         static void Main()
         {
-            var testSkaner = new Skaner("++--/\t\n/-");
+            var testSkaner = new Skaner("JOIN");
             try
             {
                 var result = testSkaner.TokenizeInput();
