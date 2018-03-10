@@ -97,20 +97,23 @@ namespace SQLSkaner
 
         public List<FoundKeyWord> TokenizeInput()
         {
-            
+
             _input += " ";
             var result = new List<FoundKeyWord>();
             var startPosition = 0;
+
             while (startPosition < _input.Length)
             {
                 var lengthOfCurrentWord = 1;
                 var inputSubstring = _input.Substring(startPosition, lengthOfCurrentWord);
                 var currentPossibleFoundKeywordsList = new List<FoundKeyWord>();
+
                 if (IsEndOfInput(startPosition + lengthOfCurrentWord) ||
                     (!AnyFullMatch(inputSubstring) && !AnyPartilMatch(inputSubstring)))
                 {
-                    ExitWithExeption(inputSubstring,startPosition);
+                    ExitWithExeption(inputSubstring, startPosition);
                 }
+
                 while (!IsEndOfInput(startPosition + lengthOfCurrentWord) &&
                        (AnyFullMatch(inputSubstring) || AnyPartilMatch(inputSubstring)))
                 {
@@ -128,7 +131,7 @@ namespace SQLSkaner
                 startPosition += lengthOfCurrentWord - 1;
                 var newFoundKeyWord = GetLongestFoundKeyWord(currentPossibleFoundKeywordsList);
 
-                if (newFoundKeyWord == null) ExitWithExeption(inputSubstring,startPosition);
+                if (newFoundKeyWord == null) ExitWithExeption(inputSubstring, startPosition);
 
                 result.Add(newFoundKeyWord);
             }

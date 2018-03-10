@@ -27,8 +27,8 @@ namespace SQLSkaner.UnitTests.Services
             Assert.IsTrue(result.FirstOrDefault()?.getKeyWordName() == tokenName);
         }
 
-        [TestCase("asdf")]
-        public void incorrectInput(string input)
+        [TestCase("sumdf ")]
+        public void IncorrectInput(string input)
         {
             var skaner = new Skaner(input);
 
