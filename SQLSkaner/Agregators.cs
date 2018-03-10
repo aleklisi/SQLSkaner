@@ -2,6 +2,7 @@
 {
     class Agregators : IKeyWords
     {
+    
         public bool IsPartialMatch(string input)
         {
             switch (input.ToUpper())
