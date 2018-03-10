@@ -10,14 +10,20 @@ namespace SQLSkaner
     {
         public bool IsFullMatch(string input)
         {
-            if ((input == ">") || (input == "<") || (input == "="))
+            input = input.ToUpper();
+            if ((input == ">") || (input == "<") || (input == "=") 
+                || (input == ">=") || (input == "<=") || (input == "<>")
+                || (input == "BETWEEN") || (input == "LIKE") || (input == "IN"))
                 return true;
             return false;
         }
 
         public bool IsPartialMatch(string input)
         {
-            throw new NotImplementedException();
+            input = input.ToUpper();
+            if ((input == ">") || (input == "<") || (input == "="))
+                return true;
+            return false;
         }
 
         public string KeyWordName()
