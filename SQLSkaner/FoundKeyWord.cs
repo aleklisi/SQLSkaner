@@ -1,9 +1,14 @@
 ﻿namespace SQLSkaner
 {
-    class FoundKeyWord
+    public class FoundKeyWord
     {
         internal string FoundPattern;
         internal IKeyWords KeyWordType;
+
+        public string getKeyWordName()
+        {
+            return KeyWordType.KeyWordName();
+        }
 
         internal FoundKeyWord(string foundPattern, IKeyWords keyWordType)
         {
