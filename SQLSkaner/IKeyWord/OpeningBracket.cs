@@ -16,5 +16,10 @@
         {
             return "OpeningBracket";
         }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: Cyan\">" + elementToBeWrapped + "</font>";
+        }
     }
 }

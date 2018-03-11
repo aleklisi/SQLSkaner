@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace SQLSkaner.IKeyWord
+﻿namespace SQLSkaner.IKeyWord
 {
     class Comma : IKeyWords
     {
@@ -18,6 +15,11 @@ namespace SQLSkaner.IKeyWord
         public string KeyWordName()
         {
             return "Comma";
+        }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: Brown\">" + elementToBeWrapped + "</font>";
         }
     }
 }

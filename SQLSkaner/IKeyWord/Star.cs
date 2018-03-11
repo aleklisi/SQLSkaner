@@ -16,5 +16,10 @@
         {
             return "Star";
         }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: DarkGreen\">" + elementToBeWrapped + "</font>";
+        }
     }
 }

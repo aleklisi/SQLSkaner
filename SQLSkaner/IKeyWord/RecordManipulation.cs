@@ -4,28 +4,33 @@ namespace SQLSkaner.IKeyWord
 {
     class RecordManipulation : IKeyWords
     {
-        static readonly List<string> matchingRegex = new List<string>();
+        private static readonly List<string> MatchingRegex = new List<string>();
 
         public RecordManipulation()
         {
-            matchingRegex.Add("SELECT");
-            matchingRegex.Add("INSERT INTO");
-            matchingRegex.Add("UPDATE");
-            matchingRegex.Add("DELETE FROM");
+            MatchingRegex.Add("SELECT");
+            MatchingRegex.Add("INSERT INTO");
+            MatchingRegex.Add("UPDATE");
+            MatchingRegex.Add("DELETE FROM");
         }
         public bool IsFullMatch(string input)
         {
-            return MatchingService.IsFullMatch(matchingRegex, input);
+            return MatchingService.IsFullMatch(MatchingRegex, input);
         }
 
         public bool IsPartialMatch(string input)
         {
-            return MatchingService.IsPartialMatch(matchingRegex, input);
+            return MatchingService.IsPartialMatch(MatchingRegex, input);
         }
 
         public string KeyWordName()
         {
             return "RecordManipulation";
+        }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: DarkCyan\">" + elementToBeWrapped + "</font>";
         }
     }
 }
