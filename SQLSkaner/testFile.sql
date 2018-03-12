@@ -1,1 +1,1 @@
-AVGavgSUM+-*//Join Inner Between
+AVG  avg  SUM+-*//Join Inner Between
