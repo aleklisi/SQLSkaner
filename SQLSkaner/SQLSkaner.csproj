@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IKeyWord\Integers.cs" />
     <Compile Include="IKeyWord\Agregators.cs" />
     <Compile Include="IKeyWord\AliasingColumns.cs" />
     <Compile Include="IKeyWord\BooleanValues.cs" />

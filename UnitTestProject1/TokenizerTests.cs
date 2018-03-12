@@ -75,6 +75,9 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("ALTER TABLE", "TableManipulation")]
         [TestCase("TRUNCATE TABLE", "TableManipulation")]
         [TestCase("DROP TABLE", "TableManipulation")]
+        [TestCase("1234", "Integer")]
+        [TestCase("0", "Integer")]
+        [TestCase("001123", "Integer")]
 
         public void TokenRecognizedCorrectly(string input, string tokenName)
         {

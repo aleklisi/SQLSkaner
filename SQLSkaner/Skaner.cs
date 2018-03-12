@@ -28,7 +28,8 @@ namespace SQLSkaner
             new Star(),
             new TableManipulation(),
             new WhiteSpaces(),
-            new Join()
+            new Join(),
+            new Integers()
         };
         private string _input;
 
