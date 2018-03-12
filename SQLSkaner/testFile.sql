@@ -1,1 +1,1 @@
-AVG  avg  SUM+-*//Join Inner Between
+1.23 0.98 123 AVG  avg  SUM+-*//Join Inner Between

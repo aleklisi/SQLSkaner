@@ -78,7 +78,10 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("1234", "Integer")]
         [TestCase("0", "Integer")]
         [TestCase("001123", "Integer")]
-
+        [TestCase("1234.9", "Float")]
+        [TestCase("0.21", "Float")]
+        [TestCase("0.00", "Float")]
+        [TestCase("12.54", "Float")]
         public void TokenRecognizedCorrectly(string input, string tokenName)
         {
             var skaner = new Skaner(input);
