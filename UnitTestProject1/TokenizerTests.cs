@@ -27,6 +27,7 @@ namespace SQLSkaner.UnitTests.Services
             Assert.IsTrue(result.FirstOrDefault()?.getKeyWordName() == tokenName);
         }
 
+<<<<<<< HEAD
         [TestCase("AVG", "Agregators")]
         [TestCase("avg", "Agregators")] 
         public void AgregatorTests(string input, string tokenName)
@@ -42,6 +43,10 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("asdf")]
         [TestCase("")]
         public void incorrectInput(string input)
+=======
+        [TestCase("sumdf ")]
+        public void IncorrectInput(string input)
+>>>>>>> master
         {
             var skaner = new Skaner(input);
 

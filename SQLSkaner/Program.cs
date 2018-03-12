@@ -25,7 +25,8 @@ namespace SQLSkaner
         }
         static void Main()
         {
-            var testSkaner = new Skaner("++--/\t\n/-");
+            // var testSkaner = new Skaner("++--/\t\n/-");
+            var testSkaner = new Skaner("asdf");
             try
             {
                 var result = testSkaner.TokenizeInput();
