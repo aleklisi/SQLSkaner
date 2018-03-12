@@ -10,14 +10,14 @@ namespace SQLSkaner.IKeyWord
         {
             string[] splitInput = input.Split('.');
 
-            if (splitInput.Length != 2 || splitInput[0] == null || splitInput[1] == null)
+            if (splitInput.Length != 2)
                 return false;
 
-            if ((splitInput[0].All(char.IsDigit)) &&
-                (splitInput[1].All(char.IsDigit)))
-                return true;
+            foreach (string s in splitInput) 
+                if ((s == null) || (!s.All(char.IsDigit)))
+                    return false;
 
-            return false;
+              return true;
         }
 
         public bool IsPartialMatch(string input)
