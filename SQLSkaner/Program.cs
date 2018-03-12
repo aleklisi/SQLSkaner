@@ -1,12 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace SQLSkaner
 {
     class Program
     {
-        string ReadFromFile(string fileName)
+        static string WrapTokenizedResult(List<FoundKeyWord> ListOfKeyWords)
+        {
+            var htmlStart =
+                "<!DOCTYPE html><head> <meta http-equiv=\"Content - Type\" content=\"text / html; charset = \"iso-8859-2\" />" +
+                "<title> Result page </title></head>" +
+                "<body>";
+            var htmlEnd = "</body>\r\n</html>";
+            StringBuilder resultWebpageBuilder = new StringBuilder();
+            resultWebpageBuilder.Append(htmlStart);
+            foreach (var keyWord in ListOfKeyWords)
+            {
+                resultWebpageBuilder.Append(keyWord.GetTokenWrappedWithHtml());
+            }
+
+            resultWebpageBuilder.Append(htmlEnd);
+            return resultWebpageBuilder.ToString();
+        }
+        static string ReadFromFile(string fileName)
         {
             try
             {   
@@ -25,12 +43,19 @@ namespace SQLSkaner
         }
         static void Main()
         {
+<<<<<<< HEAD
             // var testSkaner = new Skaner("++--/\t\n/-");
             var testSkaner = new Skaner("asdf");
+=======
+            var textFromFile = ReadFromFile(@"C:\Users\alekl\source\repos\SQLSkaner\SQLSkaner\testFile.sql");
+            var testSkaner = new Skaner(textFromFile);
+>>>>>>> master
             try
             {
                 var result = testSkaner.TokenizeInput();
-                PrintResults(result);
+                //PrintResults(result);
+                var text = WrapTokenizedResult(result);
+                File.WriteAllText(@"C:\Users\alekl\source\repos\SQLSkaner\SQLSkaner\\WriteText.html", text);
             }
             catch (Exception e)
             {

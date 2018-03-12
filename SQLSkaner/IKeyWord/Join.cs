@@ -4,29 +4,34 @@ namespace SQLSkaner.IKeyWord
 {
     class Join : IKeyWords
     {
-        static readonly List<string> matchingRegex = new List<string>();
+        private static readonly List<string> MatchingRegex = new List<string>();
 
         public Join()
         {
-            matchingRegex.Add("JOIN");
-            matchingRegex.Add("NATURAL JOIN");
-            matchingRegex.Add("INNER");
-            matchingRegex.Add("OUTER");
+            MatchingRegex.Add("JOIN");
+            MatchingRegex.Add("NATURAL JOIN");
+            MatchingRegex.Add("INNER");
+            MatchingRegex.Add("OUTER");
         }
 
         public bool IsFullMatch(string input)
         {
-            return MatchingService.IsFullMatch(matchingRegex, input);
+            return MatchingService.IsFullMatch(MatchingRegex, input);
         }
 
         public bool IsPartialMatch(string input)
         {
-            return MatchingService.IsPartialMatch(matchingRegex, input);
+            return MatchingService.IsPartialMatch(MatchingRegex, input);
         }
 
         public string KeyWordName()
         {
             return "Join";
+        }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: Coral\">" + elementToBeWrapped + "</font>";
         }
     }
 }

@@ -15,5 +15,10 @@
             FoundPattern = foundPattern;
             KeyWordType = keyWordType;
         }
+
+        public string GetTokenWrappedWithHtml()
+        {
+            return KeyWordType.WrapToHtml(FoundPattern);
+        }
     }
 }

@@ -4,27 +4,32 @@ namespace SQLSkaner.IKeyWord
 {
     class LogicalOperators : IKeyWords
     {
-        static readonly List<string> matchingRegex = new List<string>();
+        private static readonly List<string> MatchingRegex = new List<string>();
 
         public LogicalOperators()
         {
-            matchingRegex.Add("AND");
-            matchingRegex.Add("OR");
-            matchingRegex.Add("NOT");
+            MatchingRegex.Add("AND");
+            MatchingRegex.Add("OR");
+            MatchingRegex.Add("NOT");
         }
         public bool IsFullMatch(string input)
         {
-            return MatchingService.IsFullMatch(matchingRegex, input);
+            return MatchingService.IsFullMatch(MatchingRegex, input);
         }
 
         public bool IsPartialMatch(string input)
         {
-            return MatchingService.IsPartialMatch(matchingRegex, input);
+            return MatchingService.IsPartialMatch(MatchingRegex, input);
         }
 
         public string KeyWordName()
         {
             return "LogicalOperators";
+        }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: CornflowerBlue\">" + elementToBeWrapped + "</font>";
         }
     }
 }
