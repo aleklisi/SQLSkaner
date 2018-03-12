@@ -4,29 +4,34 @@ namespace SQLSkaner.IKeyWord
 {
     class Conditions : IKeyWords
     {
-        static readonly List<string> matchingRegex = new List<string>();
+        static readonly List<string> MatchingRegex = new List<string>();
 
         public Conditions()
         {
-            matchingRegex.Add("WHERE");
-            matchingRegex.Add("DISTINCT");
-            matchingRegex.Add("ON");
-            matchingRegex.Add("LIMIT");
+            MatchingRegex.Add("WHERE");
+            MatchingRegex.Add("DISTINCT");
+            MatchingRegex.Add("ON");
+            MatchingRegex.Add("LIMIT");
         }
 
         public bool IsFullMatch(string input)
         {
-            return MatchingService.IsFullMatch(matchingRegex, input);
+            return MatchingService.IsFullMatch(MatchingRegex, input);
         }
 
         public bool IsPartialMatch(string input)
         {
-            return MatchingService.IsPartialMatch(matchingRegex, input);
+            return MatchingService.IsPartialMatch(MatchingRegex, input);
         }
 
         public string KeyWordName()
         {
             return "Conditions";
+        }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: CadetBlue\">" + elementToBeWrapped + "</font>";
         }
     }
 }

@@ -4,29 +4,34 @@ namespace SQLSkaner.IKeyWord
 {
     class TableManipulation : IKeyWords
     {
-        static readonly List<string> matchingRegex = new List<string>();
+        private static readonly List<string> MatchingRegex = new List<string>();
 
         public TableManipulation()
         {
-            matchingRegex.Add("CREATE TABLE");
-            matchingRegex.Add("ALTER TABLE");
-            matchingRegex.Add("TRUNCATE TABLE");
-            matchingRegex.Add("DROP TABLE");
+            MatchingRegex.Add("CREATE TABLE");
+            MatchingRegex.Add("ALTER TABLE");
+            MatchingRegex.Add("TRUNCATE TABLE");
+            MatchingRegex.Add("DROP TABLE");
         }
 
         public bool IsFullMatch(string input)
         {
-            return MatchingService.IsFullMatch(matchingRegex, input);
+            return MatchingService.IsFullMatch(MatchingRegex, input);
         }
 
         public bool IsPartialMatch(string input)
         {
-            return MatchingService.IsPartialMatch(matchingRegex, input);
+            return MatchingService.IsPartialMatch(MatchingRegex, input);
         }
 
         public string KeyWordName()
         {
             return "TableManipulation";
+        }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: DarkKhaki\">" + elementToBeWrapped + "</font>";
         }
     }
 }

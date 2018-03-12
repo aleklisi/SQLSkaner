@@ -1,32 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SQLSkaner.IKeyWord
 {
     class RecordManipulationFollower : IKeyWords
     {
-        static readonly List<string> matchingRegex = new List<string>();
+        private static readonly List<string> MatchingRegex = new List<string>();
 
         public RecordManipulationFollower()
         {
-            matchingRegex.Add("FROM");
-            matchingRegex.Add("SET");
-            matchingRegex.Add("VALUES");
+            MatchingRegex.Add("FROM");
+            MatchingRegex.Add("SET");
+            MatchingRegex.Add("VALUES");
         }
 
         public bool IsFullMatch(string input)
         {
-            return MatchingService.IsFullMatch(matchingRegex, input);
+            return MatchingService.IsFullMatch(MatchingRegex, input);
         }
 
         public bool IsPartialMatch(string input)
         {
-            return MatchingService.IsPartialMatch(matchingRegex, input);
+            return MatchingService.IsPartialMatch(MatchingRegex, input);
         }
 
         public string KeyWordName()
         {
             return "RecordManipulationFollower";
+        }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: DarkGoldenRod\">" + elementToBeWrapped + "</font>";
         }
     }
 }

@@ -23,5 +23,10 @@
         {
             return "MathematicalOperators";
         }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: Crimson\">" + elementToBeWrapped + "</font>";
+        }
     }
 }

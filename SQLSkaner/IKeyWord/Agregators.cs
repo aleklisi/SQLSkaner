@@ -1,32 +1,37 @@
 ﻿using System.Collections.Generic;
 
-namespace SQLSkaner
+namespace SQLSkaner.IKeyWord
 {
     class Agregators : IKeyWords
     {
-        static readonly List<string> matchingRegex = new List<string>();
+        static readonly List<string> MatchingRegex = new List<string>();
 
         public Agregators()
         {
-            matchingRegex.Add("AVG");
-            matchingRegex.Add("SUM");
-            matchingRegex.Add("MIN");
-            matchingRegex.Add("MAX");
+            MatchingRegex.Add("AVG");
+            MatchingRegex.Add("SUM");
+            MatchingRegex.Add("MIN");
+            MatchingRegex.Add("MAX");
         }
 
         public bool IsFullMatch(string input)
         {
-            return MatchingService.IsFullMatch(matchingRegex, input);
+            return MatchingService.IsFullMatch(MatchingRegex, input);
         }
 
         public bool IsPartialMatch(string input)
         {
-            return MatchingService.IsPartialMatch(matchingRegex, input);
+            return MatchingService.IsPartialMatch(MatchingRegex, input);
         }
 
         public string KeyWordName()
         {
             return "Agregators";
+        }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: AntiqueWhite\">" + elementToBeWrapped +"</font>";
         }
     }
 }

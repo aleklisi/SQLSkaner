@@ -4,29 +4,34 @@ namespace SQLSkaner.IKeyWord
 {
     class OrderingAndGrouping : IKeyWords
     {
-        static readonly List<string> matchingRegex = new List<string>();
+        private static readonly List<string> MatchingRegex = new List<string>();
 
         public OrderingAndGrouping()
         {
-            matchingRegex.Add("GROUP BY");
-            matchingRegex.Add("ORDER BY");
-            matchingRegex.Add("ASC");
-            matchingRegex.Add("DESC");
+            MatchingRegex.Add("GROUP BY");
+            MatchingRegex.Add("ORDER BY");
+            MatchingRegex.Add("ASC");
+            MatchingRegex.Add("DESC");
         }
 
         public bool IsFullMatch(string input)
         {
-            return MatchingService.IsFullMatch(matchingRegex, input);
+            return MatchingService.IsFullMatch(MatchingRegex, input);
         }
 
         public bool IsPartialMatch(string input)
         {
-            return MatchingService.IsPartialMatch(matchingRegex, input);
+            return MatchingService.IsPartialMatch(MatchingRegex, input);
         }
 
         public string KeyWordName()
         {
             return "OrderingAndGrouping";
+        }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: DarkBlue\">" + elementToBeWrapped + "</font>";
         }
     }
 }

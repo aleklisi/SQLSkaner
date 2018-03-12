@@ -25,5 +25,10 @@
         {
             return "WhiteSpaces";
         }
+
+        public string WrapToHtml(string elementToBeWrapped)
+        {
+            return "<font style=\"color: DarkMagenta\">" + elementToBeWrapped + "</font>";
+        }
     }
 }

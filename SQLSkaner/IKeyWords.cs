@@ -5,5 +5,6 @@
         bool IsPartialMatch(string input);
         bool IsFullMatch(string input);
         string KeyWordName();
+        string WrapToHtml(string elementToBeWrapped);
     }
 }
