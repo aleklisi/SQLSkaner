@@ -30,7 +30,8 @@ namespace SQLSkaner
             new WhiteSpaces(),
             new Join(),
             new Integers(),
-            new Floats()
+            new Floats(),
+            new Identifier()
         };
         private string _input;
 

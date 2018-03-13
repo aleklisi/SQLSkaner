@@ -82,6 +82,11 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("0.21", "Float")]
         [TestCase("0.00", "Float")]
         [TestCase("12.54", "Float")]
+        [TestCase("absd", "Identifier")]
+        [TestCase("avge", "Identifier")]
+        [TestCase("asum", "Identifier")]
+        [TestCase("a12", "Identifier")]
+
         public void TokenRecognizedCorrectly(string input, string tokenName)
         {
             var skaner = new Skaner(input);
@@ -106,6 +111,9 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("asdf")]
         [TestCase("")]
         [TestCase("sumdf ")]
+        [TestCase(".01 ")]
+        [TestCase("0.0.1")]
+        [TestCase("0.1.")]
         public void IncorrectInput(string input)
 
         {
