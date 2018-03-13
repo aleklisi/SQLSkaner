@@ -106,11 +106,7 @@ namespace SQLSkaner.UnitTests.Services
             Assert.IsTrue(result.FirstOrDefault()?.getKeyWordName() == tokenName);
         }
 
-        [TestCase("AV")]
-        [TestCase("AVerage")]
-        [TestCase("asdf")]
         [TestCase("")]
-        [TestCase("sumdf ")]
         [TestCase(".01 ")]
         [TestCase("0.0.1")]
         [TestCase("0.1.")]

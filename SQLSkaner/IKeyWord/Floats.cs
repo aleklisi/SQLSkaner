@@ -8,21 +8,24 @@ namespace SQLSkaner.IKeyWord
 
         public bool IsFullMatch(string input)
         {
-            string[] splitInput = input.Split('.');
+            var splitInput = input.Split('.');
 
             if (splitInput.Length != 2)
                 return false;
 
-            foreach (string s in splitInput) 
-                if ((s == null) || (!s.All(char.IsDigit)))
-                    return false;
+            var result = splitInput[0].All(char.IsDigit) && splitInput[0].Length > 0 &&
+                         splitInput[1].All(char.IsDigit) && splitInput[1].Length > 0;
 
-              return true;
+            return result;
         }
 
         public bool IsPartialMatch(string input)
         {
-            return false;
+            var splitInput = input.Split('.');
+
+            return splitInput.Length == 1 && splitInput[0].All(char.IsDigit) || 
+                   splitInput.Length == 2 && splitInput[0].All(char.IsDigit)&& splitInput[1].All(char.IsDigit);
+
         }
 
         public string KeyWordName()

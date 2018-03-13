@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SQLSkaner.IKeyWord
 {
@@ -92,17 +89,13 @@ namespace SQLSkaner.IKeyWord
 
         public bool IsPartialMatch(string input)
         {
-            return false;
+            return char.IsLetter(input[0]) && input.All(ch =>  (char.IsLetter(ch) || char.IsDigit(ch)) && !char.IsWhiteSpace(ch));
         }
 
         public bool IsFullMatch(string input)
         {
-            if (MatchingService.IsFullMatch(ReservedWords, input))
-                return false;
-            if (char.IsDigit(input[0]))
-                return false;
-
-            return true;
+            return !MatchingService.IsFullMatch(ReservedWords, input) && 
+                   char.IsLetter(input[0]) && input.All(ch => (char.IsLetter(ch) || char.IsDigit(ch)) && !char.IsWhiteSpace(ch));
         }
 
         public string KeyWordName()
