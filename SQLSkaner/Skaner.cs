@@ -29,7 +29,9 @@ namespace SQLSkaner
             new TableManipulation(),
             new WhiteSpaces(),
             new Join(),
-            new Integers()
+            new Integers(),
+            new Floats(),
+            new Identifier()
         };
         private string _input;
 

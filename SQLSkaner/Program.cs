@@ -43,14 +43,18 @@ namespace SQLSkaner
         }
         static void Main()
         {
-            var textFromFile = ReadFromFile(@"C:\Users\alekl\source\repos\SQLSkaner\SQLSkaner\testFile.sql");
+            // var testSkaner = new Skaner("++--/\t\n/-");
+            //var testSkaner = new Skaner("asdf");
+
+            var textFromFile = ReadFromFile(@"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\testFile.sql");
             var testSkaner = new Skaner(textFromFile);
+
             try
             {
                 var result = testSkaner.TokenizeInput();
-                //PrintResults(result);
+                PrintResults(result);
                 var text = WrapTokenizedResult(result);
-                File.WriteAllText(@"C:\Users\alekl\source\repos\SQLSkaner\SQLSkaner\\WriteText.html", text);
+                File.WriteAllText(@"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\WriteText.html", text);
             }
             catch (Exception e)
             {

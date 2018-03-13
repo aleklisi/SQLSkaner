@@ -78,6 +78,14 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("1234", "Integer")]
         [TestCase("0", "Integer")]
         [TestCase("001123", "Integer")]
+        [TestCase("1234.9", "Float")]
+        [TestCase("0.21", "Float")]
+        [TestCase("0.00", "Float")]
+        [TestCase("12.54", "Float")]
+        [TestCase("absd", "Identifier")]
+        [TestCase("avge", "Identifier")]
+        [TestCase("asum", "Identifier")]
+        [TestCase("a12", "Identifier")]
 
         public void TokenRecognizedCorrectly(string input, string tokenName)
         {
@@ -88,8 +96,22 @@ namespace SQLSkaner.UnitTests.Services
             Assert.IsTrue(result.FirstOrDefault()?.getKeyWordName() == tokenName);
         }
 
-        [TestCase("sumdf ")]
+        [TestCase("AVG", "Agregators")]
+        [TestCase("avg", "Agregators")] 
+        public void AgregatorTests(string input, string tokenName)
+        {
+            var skaner = new Skaner(input);
+
+            var result = skaner.TokenizeInput();
+            Assert.IsTrue(result.FirstOrDefault()?.getKeyWordName() == tokenName);
+        }
+
+        [TestCase("")]
+        [TestCase(".01 ")]
+        [TestCase("0.0.1")]
+        [TestCase("0.1.")]
         public void IncorrectInput(string input)
+
         {
             var skaner = new Skaner(input);
 

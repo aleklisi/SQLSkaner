@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IKeyWord\Floats.cs" />
+    <Compile Include="IKeyWord\Identifier.cs" />
     <Compile Include="IKeyWord\Integers.cs" />
     <Compile Include="IKeyWord\Agregators.cs" />
     <Compile Include="IKeyWord\AliasingColumns.cs" />
