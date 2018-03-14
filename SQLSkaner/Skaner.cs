@@ -31,7 +31,8 @@ namespace SQLSkaner
             new Join(),
             new Integers(),
             new Floats(),
-            new Identifier()
+            new Identifier(),
+            new Strings()
         };
         private string _input;
 
