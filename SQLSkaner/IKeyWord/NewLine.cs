@@ -1,7 +1,9 @@
-﻿namespace SQLSkaner.IKeyWord
-{
+﻿using System;
+using System.Collections.Generic;
 
-    public class WhiteSpaces : IKeyWords
+namespace SQLSkaner.IKeyWord
+{
+    class NewLine : IKeyWords
     {
         public bool IsPartialMatch(string input)
         {
@@ -10,25 +12,22 @@
 
         public bool IsFullMatch(string input)
         {
-            if (input.Equals(" "))
-                return true;
-            if (input.Equals("\t"))
+            if(input.Equals("\r"))
                 return true;
             if (input.Equals("\n"))
                 return true;
-            if (input.Equals("\r"))
-                return true;
+             
             return false;
         }
 
         public string KeyWordName()
         {
-            return "WhiteSpaces";
+            return "NewLine";
         }
 
         public string WrapToHtml(string elementToBeWrapped)
         {
-            return "<font style=\"color: DarkMagenta\">" + elementToBeWrapped + "</font>";
+            return "<br />";
         }
     }
 }

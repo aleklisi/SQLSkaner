@@ -41,12 +41,25 @@ namespace SQLSkaner
                 return e.Message;
             }
         }
-        static void Main()
+
+        static void Main(string[] args)
         {
             // var testSkaner = new Skaner("++--/\t\n/-");
             //var testSkaner = new Skaner("asdf");
+            string fileInput;
+            string fileOutput;
 
-            var textFromFile = ReadFromFile(@"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\testFile.sql");
+            if (args.Length < 2) { 
+                fileInput = @"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\testFile.sql";
+                fileOutput = @"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\WriteText.html";
+             }
+            else
+            {
+                fileInput = args[0];
+                fileOutput = args[1];
+            }
+
+            var textFromFile = ReadFromFile(fileInput);
             var testSkaner = new Skaner(textFromFile);
 
             try
@@ -54,7 +67,7 @@ namespace SQLSkaner
                 var result = testSkaner.TokenizeInput();
                 PrintResults(result);
                 var text = WrapTokenizedResult(result);
-                File.WriteAllText(@"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\WriteText.html", text);
+                File.WriteAllText(fileOutput, text);
             }
             catch (Exception e)
             {
