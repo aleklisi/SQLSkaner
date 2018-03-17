@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IKeyWord\Dot.cs" />
     <Compile Include="IKeyWord\Floats.cs" />
     <Compile Include="IKeyWord\Identifier.cs" />
     <Compile Include="IKeyWord\Integers.cs" />

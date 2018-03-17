@@ -85,14 +85,13 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("absd", "Identifier")]
         [TestCase("avge", "Identifier")]
         [TestCase("asum", "Identifier")]
-        [TestCase("czkoladki.masa", "Identifier")]
-        [TestCase("avge.masa", "Identifier")]
         [TestCase("\"\"", "Strings")]
         [TestCase("\"asdfghADF  123\"", "Strings")]
         [TestCase("\"12345\"", "Strings")]
         [TestCase("\"       \"", "Strings")]
         [TestCase("\"++--=-=\"", "Strings")]
-        [TestCase(";", "Semicolon")]        
+        [TestCase(";", "Semicolon")]
+        [TestCase(".", "Dot")]
 
         public void TokenRecognizedCorrectly(string input, string tokenName)
         {
