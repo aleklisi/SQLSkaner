@@ -8,7 +8,7 @@ namespace SQLSkaner.UnitTests.Services
     [TestFixture]
     public class MathematicalOperatorsTests
     {
-        
+
         [TestCase("+", "MathematicalOperators")]
         [TestCase("-", "MathematicalOperators")]
         [TestCase("/", "MathematicalOperators")]
@@ -32,8 +32,8 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("TRUE", "BooleanValues")]
         [TestCase("FALSE", "BooleanValues")]
         [TestCase(",", "Comma")]
-        [TestCase(">","Comparator")]
-        [TestCase("<","Comparator")]
+        [TestCase(">", "Comparator")]
+        [TestCase("<", "Comparator")]
         [TestCase("=", "Comparator")]
         [TestCase(">=", "Comparator")]
         [TestCase("=<", "Comparator")]
@@ -85,7 +85,12 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("absd", "Identifier")]
         [TestCase("avge", "Identifier")]
         [TestCase("asum", "Identifier")]
-        [TestCase("a12", "Identifier")]
+        [TestCase("\"\"", "Strings")]
+        [TestCase("\"asdfghADF  123\"", "Strings")]
+        [TestCase("\"12345\"", "Strings")]
+        [TestCase("\"       \"", "Strings")]
+        [TestCase("\"++--=-=\"", "Strings")]
+
 
         public void TokenRecognizedCorrectly(string input, string tokenName)
         {
@@ -110,6 +115,9 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase(".01 ")]
         [TestCase("0.0.1")]
         [TestCase("0.1.")]
+        [TestCase("\"")]
+        [TestCase("\"124")]
+        [TestCase("\"gf  w")]
         public void IncorrectInput(string input)
 
         {

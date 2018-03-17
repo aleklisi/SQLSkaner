@@ -34,6 +34,7 @@ namespace SQLSkaner
             new Space(),
             new NewLine(),
             new Tabular()
+            new Strings()
         };
         private string _input;
 
