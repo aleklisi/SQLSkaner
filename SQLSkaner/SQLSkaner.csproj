@@ -50,7 +50,8 @@
     <Compile Include="IKeyWord\BooleanValues.cs" />
     <Compile Include="IKeyWord\ClosingBracket.cs" />
     <Compile Include="IKeyWord\Comma.cs" />
-	<Compile Include="IKeyWord\Strings.cs" />
+    <Compile Include="IKeyWord\Semicolon.cs" />
+    <Compile Include="IKeyWord\Strings.cs" />
     <Compile Include="IKeyWord\Comparator.cs" />
     <Compile Include="IKeyWord\Conditions.cs" />
     <Compile Include="IKeyWord\DataTypes.cs" />

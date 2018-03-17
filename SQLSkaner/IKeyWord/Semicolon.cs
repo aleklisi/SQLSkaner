@@ -1,6 +1,6 @@
 ﻿namespace SQLSkaner.IKeyWord
 {
-    class Tabular : IKeyWords
+    class Semicolon : IKeyWords
     {
         public bool IsPartialMatch(string input)
         {
@@ -9,17 +9,17 @@
 
         public bool IsFullMatch(string input)
         {
-            return (input.Equals("\t"));
+            return (input.Equals(";"));
         }
 
         public string KeyWordName()
         {
-            return "Tabular";
+            return "Semicolon";
         }
 
         public string WrapToHtml(string elementToBeWrapped)
         {
-            return "<html>&nbsp &nbsp &nbsp &nbsp</html>";
+            return "<font style=\"color: Black\">" + elementToBeWrapped + "</font>";
         }
     }
 }

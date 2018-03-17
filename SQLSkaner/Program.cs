@@ -49,11 +49,11 @@ namespace SQLSkaner
             string fileInput;
             string fileOutput;
 
-            if (args.Length < 2) { 
-                fileInput = @"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\testFile.sql";
-                fileOutput = @"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\WriteText.html";
+            if (args.Length < 2)
+            {
+               fileInput = @"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\testFile.sql";
+               fileOutput = @"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\SkanerCsResult.html";
              }
-            else
             {
                 fileInput = args[0];
                 fileOutput = args[1];

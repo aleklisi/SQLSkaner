@@ -90,7 +90,7 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("\"12345\"", "Strings")]
         [TestCase("\"       \"", "Strings")]
         [TestCase("\"++--=-=\"", "Strings")]
-
+        [TestCase(";", "Semicolon")]        
 
         public void TokenRecognizedCorrectly(string input, string tokenName)
         {
