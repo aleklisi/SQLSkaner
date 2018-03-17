@@ -89,13 +89,13 @@ namespace SQLSkaner.IKeyWord
 
         public bool IsPartialMatch(string input)
         {
-            return char.IsLetter(input[0]) && input.All(ch =>  (char.IsLetter(ch) || char.IsDigit(ch)) || char.IsPunctuation(ch) && !char.IsWhiteSpace(ch));
+            return char.IsLetter(input[0]) && input.All(ch =>  (char.IsLetter(ch) || char.IsDigit(ch)) || ch.Equals('.') && !char.IsWhiteSpace(ch));
         }
 
         public bool IsFullMatch(string input)
         {
             return !MatchingService.IsFullMatch(ReservedWords, input) && 
-                   char.IsLetter(input[0]) && input.All(ch => (char.IsLetter(ch) || char.IsDigit(ch)) || char.IsPunctuation(ch)  && !char.IsWhiteSpace(ch));
+                   char.IsLetter(input[0]) && input.All(ch => (char.IsLetter(ch) || char.IsDigit(ch)) || ch.Equals('.') && !char.IsWhiteSpace(ch));
         }
 
         public string KeyWordName()
