@@ -30,10 +30,11 @@ namespace SQLSkaner
             new Join(),
             new Integers(),
             new Floats(),
-            new Identifier(),
             new Space(),
             new NewLine(),
-            new Tabular()
+            new Tabular(),
+            new Identifier(),
+            new Strings()
         };
         private string _input;
 
