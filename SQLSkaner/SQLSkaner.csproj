@@ -60,17 +60,19 @@
     <Compile Include="FoundKeyWord.cs" />
     <Compile Include="IKeyWords.cs" />
     <Compile Include="IKeyWord\MathematicalOperators.cs" />
+    <Compile Include="IKeyWord\NewLine.cs" />
     <Compile Include="IKeyWord\OpeningBracket.cs" />
     <Compile Include="IKeyWord\OrderingAndGrouping.cs" />
     <Compile Include="IKeyWord\RecordManipulation.cs" />
     <Compile Include="IKeyWord\RecordManipulationFollower.cs" />
+    <Compile Include="IKeyWord\Space.cs" />
+    <Compile Include="IKeyWord\Tabular.cs" />
     <Compile Include="PartialMatching.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skaner.cs" />
     <Compile Include="IKeyWord\Star.cs" />
     <Compile Include="IKeyWord\TableManipulation.cs" />
-    <Compile Include="IKeyWord\WhiteSpaces.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

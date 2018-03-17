@@ -27,11 +27,13 @@ namespace SQLSkaner
             new RecordManipulationFollower(),
             new Star(),
             new TableManipulation(),
-            new WhiteSpaces(),
             new Join(),
             new Integers(),
             new Floats(),
             new Identifier(),
+            new Space(),
+            new NewLine(),
+            new Tabular()
             new Strings()
         };
         private string _input;
