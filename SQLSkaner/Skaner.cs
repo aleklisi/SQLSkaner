@@ -33,6 +33,7 @@ namespace SQLSkaner
             new Space(),
             new NewLine(),
             new Tabular(),
+            new Semicolon(),
             new Identifier(),
             new Strings()
         };
