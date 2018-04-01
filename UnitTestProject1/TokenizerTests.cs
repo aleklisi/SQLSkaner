@@ -14,10 +14,10 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("/", "MathematicalOperators")]
         [TestCase("(", "OpeningBracket")]
         [TestCase(")", "ClosingBracket")]
-        [TestCase(" ", "WhiteSpaces")]
-        [TestCase("\t", "WhiteSpaces")]
-        [TestCase("\n", "WhiteSpaces")]
-        [TestCase("\r", "WhiteSpaces")]
+        [TestCase(" ", "Space")]
+        [TestCase("\t", "Tabular")]
+        [TestCase("\n", "NewLine")]
+        [TestCase("\r\n", "NewLine")]
         [TestCase("AVG", "Agregators")]
         [TestCase("Avg", "Agregators")]
         [TestCase("AvG", "Agregators")]
@@ -90,7 +90,8 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase("\"12345\"", "Strings")]
         [TestCase("\"       \"", "Strings")]
         [TestCase("\"++--=-=\"", "Strings")]
-
+        [TestCase(";", "Semicolon")]
+        [TestCase(".", "Dot")]
 
         public void TokenRecognizedCorrectly(string input, string tokenName)
         {
