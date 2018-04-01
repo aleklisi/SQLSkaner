@@ -7,7 +7,7 @@ namespace SQLSkaner
 {
     class Program
     {
-        static string WrapTokenizedResult(List<FoundKeyWord> ListOfKeyWords)
+        static string WrapTokenizedResult(List<FoundKeyWord> listOfKeyWords)
         {
             var htmlStart =
                 "<!DOCTYPE html><head> <meta http-equiv=\"Content - Type\" content=\"text / html; charset = \"iso-8859-2\" />" +
@@ -16,7 +16,7 @@ namespace SQLSkaner
             var htmlEnd = "</body>\r\n</html>";
             StringBuilder resultWebpageBuilder = new StringBuilder();
             resultWebpageBuilder.Append(htmlStart);
-            foreach (var keyWord in ListOfKeyWords)
+            foreach (var keyWord in listOfKeyWords)
             {
                 resultWebpageBuilder.Append(keyWord.GetTokenWrappedWithHtml());
             }
@@ -27,7 +27,7 @@ namespace SQLSkaner
         static string ReadFromFile(string fileName)
         {
             try
-            {   
+            {
                 using (StreamReader sr = new StreamReader(fileName))
                 {
                     String line = sr.ReadToEnd();
@@ -46,14 +46,10 @@ namespace SQLSkaner
         {
             // var testSkaner = new Skaner("++--/\t\n/-");
             //var testSkaner = new Skaner("asdf");
-            string fileInput;
-            string fileOutput;
 
-            if (args.Length < 2)
-            {
-               fileInput = @"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\testFile.sql";
-               fileOutput = @"C:\Users\Natalia\Documents\Skaner\SQLSkaner\SQLSkaner\SkanerCsResult.html";
-             }
+            var fileInput = @"C:\Users\sebac\Documents\GitHub\SQLSkaner\SQLSkaner\testFile.sql";
+            var fileOutput = @"C:\Users\sebac\Documents\GitHub\SQLSkaner\SQLSkaner\SkanerCsResult.html";
+            if (args.Length >= 2)
             {
                 fileInput = args[0];
                 fileOutput = args[1];

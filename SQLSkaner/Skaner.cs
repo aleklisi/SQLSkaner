@@ -38,6 +38,8 @@ namespace SQLSkaner
             new Identifier(),
             new Strings()
         };
+
+        private List<IKeyWords> _currentPossibleKeywordsList;
         private string _input;
 
 
@@ -66,7 +68,7 @@ namespace SQLSkaner
         List<FoundKeyWord> GetAllFullMatches(string currentInput)
         {
             var result = new List<FoundKeyWord>();
-            foreach (var keyWord in _allPossibleKeywordsList)
+            foreach (var keyWord in _currentPossibleKeywordsList)
             {
                 if (keyWord.IsFullMatch(currentInput))
                 {
@@ -139,6 +141,7 @@ namespace SQLSkaner
             while (!IsEndOfInput(startPosition + lengthOfCurrentWord) &&
                    (AnyFullMatch(inputSubstring) || AnyPartilMatch(inputSubstring)))
             {
+                RemoveImpossiblePaths(inputSubstring);
                 var fullMaches = GetAllFullMatches(inputSubstring);
                 currentPossibleFoundKeywordsList.AddRange(fullMaches);
                 lengthOfCurrentWord++;
@@ -152,6 +155,18 @@ namespace SQLSkaner
 
             startPosition += lengthOfCurrentWord - 1;
             return inputSubstring;
+        }
+
+        private void RemoveImpossiblePaths(string inputSubstring)
+        {
+            _currentPossibleKeywordsList = new List<IKeyWords>();
+            foreach (var keyWord in _allPossibleKeywordsList)
+            {
+                if (keyWord.IsPartialMatch(inputSubstring) || keyWord.IsFullMatch(inputSubstring))
+                {
+                    _currentPossibleKeywordsList.Add(keyWord);
+                }
+            }
         }
     }
 }
