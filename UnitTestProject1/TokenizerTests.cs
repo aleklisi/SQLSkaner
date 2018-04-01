@@ -17,6 +17,7 @@ namespace SQLSkaner.UnitTests.Services
         [TestCase(" ", "Space")]
         [TestCase("\t", "Tabular")]
         [TestCase("\n", "NewLine")]
+        [TestCase("\r\n", "NewLine")]
         [TestCase("AVG", "Agregators")]
         [TestCase("Avg", "Agregators")]
         [TestCase("AvG", "Agregators")]
@@ -112,6 +113,9 @@ namespace SQLSkaner.UnitTests.Services
         }
 
         [TestCase("")]
+        [TestCase(".01 ")]
+        [TestCase("0.0.1")]
+        [TestCase("0.1.")]
         [TestCase("\"")]
         [TestCase("\"124")]
         [TestCase("\"gf  w")]
