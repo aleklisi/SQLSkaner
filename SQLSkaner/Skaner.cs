@@ -113,32 +113,7 @@ namespace SQLSkaner
 
             while (startPosition < _input.Length)
             {
-                var lengthOfCurrentWord = 1;
-                var inputSubstring = _input.Substring(startPosition, lengthOfCurrentWord);
-                var currentPossibleFoundKeywordsList = new List<FoundKeyWord>();
-
-                if (IsEndOfInput(startPosition + lengthOfCurrentWord) ||
-                    (!AnyFullMatch(inputSubstring) && !AnyPartilMatch(inputSubstring)))
-                {
-                    ExitWithExeption(inputSubstring, startPosition);
-                }
-
-                while (!IsEndOfInput(startPosition + lengthOfCurrentWord) &&
-                       (AnyFullMatch(inputSubstring) || AnyPartilMatch(inputSubstring)))
-                {
-                    var fullMaches = GetAllFullMatches(inputSubstring);
-                    currentPossibleFoundKeywordsList.AddRange(fullMaches);
-                    lengthOfCurrentWord++;
-                    if (IsEndOfInput(startPosition + lengthOfCurrentWord))
-                    {
-                        startPosition += lengthOfCurrentWord;
-                        break;
-                    }
-                    inputSubstring = _input.Substring(startPosition, lengthOfCurrentWord);
-                }
-
-                startPosition += lengthOfCurrentWord - 1;
-                var newFoundKeyWord = GetLongestFoundKeyWord(currentPossibleFoundKeywordsList);
+                var inputSubstring = GetNextToken(ref startPosition, out var newFoundKeyWord);
 
                 if (newFoundKeyWord == null) ExitWithExeption(inputSubstring, startPosition);
 
@@ -146,6 +121,37 @@ namespace SQLSkaner
             }
 
             return result;
+        }
+
+        private string GetNextToken(ref int startPosition, out FoundKeyWord newFoundKeyWord)
+        {
+            var lengthOfCurrentWord = 1;
+            var inputSubstring = _input.Substring(startPosition, lengthOfCurrentWord);
+            var currentPossibleFoundKeywordsList = new List<FoundKeyWord>();
+
+            if (IsEndOfInput(startPosition + lengthOfCurrentWord) ||
+                (!AnyFullMatch(inputSubstring) && !AnyPartilMatch(inputSubstring)))
+            {
+                ExitWithExeption(inputSubstring, startPosition);
+            }
+
+            while (!IsEndOfInput(startPosition + lengthOfCurrentWord) &&
+                   (AnyFullMatch(inputSubstring) || AnyPartilMatch(inputSubstring)))
+            {
+                var fullMaches = GetAllFullMatches(inputSubstring);
+                currentPossibleFoundKeywordsList.AddRange(fullMaches);
+                lengthOfCurrentWord++;
+                if (IsEndOfInput(startPosition + lengthOfCurrentWord))
+                {
+                    startPosition += lengthOfCurrentWord;
+                    break;
+                }
+                inputSubstring = _input.Substring(startPosition, lengthOfCurrentWord);
+            }
+
+            startPosition += lengthOfCurrentWord - 1;
+            newFoundKeyWord = GetLongestFoundKeyWord(currentPossibleFoundKeywordsList);
+            return inputSubstring;
         }
     }
 }
